@@ -32,7 +32,6 @@ struct	s_coord
 	int x;
 	int y;
 	int z;
-	COORD *next;
 };
 
 #endif
