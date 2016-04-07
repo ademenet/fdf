@@ -21,8 +21,6 @@ int		main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		gnl = pixels_tab_allocate(argv[1], pixels);
-		printf("nbr pxl : %d\n", gnl);
 	}
 	return (0);
 }

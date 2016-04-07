@@ -31,10 +31,10 @@ typedef struct s_coord	t_coord;
 
 struct		s_coord
 {
-	int 	x;
+	int		x;
 	int		y;
-	int 	z;
-	COORD 	*next;
+	int		z;
+	COORD	*next;
 };
 
 #endif
