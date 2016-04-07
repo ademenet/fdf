@@ -23,15 +23,18 @@
 # include "mlx.h"
 # include "libft/libft.h"
 
+# define BUFF_SIZE 100
+
 # define COORD t_coord
 
 typedef struct s_coord	t_coord;
 
-struct	s_coord
+struct		s_coord
 {
-	int x;
-	int y;
-	int z;
+	int 	x;
+	int		y;
+	int 	z;
+	COORD 	*next;
 };
 
 #endif

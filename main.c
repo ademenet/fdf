@@ -17,15 +17,12 @@ int		main(int argc, char **argv)
 	int		fd;
 	int		gnl;
 	char	*line[100];
+	COORD	*pixels;
 
 	if (argc == 2)
 	{
-		fd = open(argv[1], O_RDONLY);
-		while ((gnl = get_next_line(fd, line)) != 0)
-		{
-			ft_putstr(*line);
-			ft_putstr("\n");
-		}
+		gnl = pixels_tab_allocate(argv[1], pixels);
+		printf("nbr pxl : %d\n", gnl);
 	}
 	return (0);
 }
