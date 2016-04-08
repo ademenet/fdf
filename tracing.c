@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tracing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/08 16:11:24 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/08 18:48:14 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,63 @@ typedef struct
 	void	*mlx_win;
 } data_t;
 
+typedef struct
+{
+	int		dx;
+	int		dy;
+	int		e;
+	int		x_incr;
+	int		y_incr;
+	int		i;
+	int		Dx;
+	int		Dy;
+} t_bresenham;
+
 /*
- ** This function is based on Bresenham works.
- */
+** This function is based on Bresenham works.
+*/
+
+// TODO : intégrer la fonction abs à la libft
 
 int		abs(int x)
 {
 	return (x < 0 ? -x : x);
 }
 
+// TODO : finir la structure et les deux cas
+
 void	line(int x1, int y1, int x2, int y2, data_t data)
 {
 	int		dx;
 	int		dy;
 	int		e;
+	int		x_incr;
+	int		y_incr;
+	int		i;
+	int		Dx;
+	int		Dy;
 
 	e = abs(x2 - x1);
 	dx = 2 * e;
 	dy = 2 * abs(y2 - y1);
-	while (x1 <= x2)
+	Dx = ex;
+	if (x1 > x2)
+		x_incr = -1;
+	if (y1 > y2)
+		y_incr = -1;
+	if (Dx > Dy)
 	{
-		mlx_pixel_put(data.mlx_ptr, data.mlx_win, x1, y1, 0x00FFFFFF);
-		x1++;
-		e-=dy;
-		if (e < 0)
+		while (i <= Dx)
 		{
-			y1--;
-			e+=dx;
+			mlx_pixel_put(data.mlx_ptr, data.mlx_win, x1, y1, 0x00FFFFFF);
+			x1 += x_incr
+			e -= dy;
+			if (e < 0)
+			{
+				y1 += y_incr;
+				e += dx;
+			}
+			i++;
 		}
 	}
 }
