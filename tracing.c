@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/08 18:48:14 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/09 19:01:46 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct
 {
 	int		dx;
 	int		dy;
-	int		e;
+	int		ex;
+	int		ey;
 	int		x_incr;
 	int		y_incr;
 	int		i;
@@ -37,9 +38,7 @@ typedef struct
 ** This function is based on Bresenham works.
 */
 
-// TODO : intégrer la fonction abs à la libft
-
-int		abs(int x)
+int		ft_abs(int x)
 {
 	return (x < 0 ? -x : x);
 }
@@ -57,9 +56,9 @@ void	line(int x1, int y1, int x2, int y2, data_t data)
 	int		Dx;
 	int		Dy;
 
-	e = abs(x2 - x1);
+	e = ft_abs(x2 - x1);
 	dx = 2 * e;
-	dy = 2 * abs(y2 - y1);
+	dy = 2 * ft_abs(y2 - y1);
 	Dx = ex;
 	if (x1 > x2)
 		x_incr = -1;
@@ -71,7 +70,7 @@ void	line(int x1, int y1, int x2, int y2, data_t data)
 		{
 			mlx_pixel_put(data.mlx_ptr, data.mlx_win, x1, y1, 0x00FFFFFF);
 			x1 += x_incr
-			e -= dy;
+			ex -= dy;
 			if (e < 0)
 			{
 				y1 += y_incr;
@@ -80,7 +79,24 @@ void	line(int x1, int y1, int x2, int y2, data_t data)
 			i++;
 		}
 	}
+	if (Dx < Dy)
+	{
+		while (i <= Dy)
+		{
+			mlx_pixel_put(data.mlx_ptr, data.mlx_win, x1, y1, 0x00FFFFFF);
+			y1 += y_incr;
+			ey -= dx;
+			if (ey < 0)
+			{
+				x1 += x_incr;
+				ey += dy;
+			}
+			i++;
+		}
+	}
 }
+
+
 
 int		main()
 {
