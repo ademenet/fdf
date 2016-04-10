@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:27:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/10 19:35:00 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				main(int ac, char **av)
 	return (0);
 }
 
-/* 
+/*
  * int		main()
  * {
  * 	data_t	data;

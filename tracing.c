@@ -6,13 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:26:25 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/10 19:33:08 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	ft_case_2(TRACE trace, data_t data)
+static void	ft_case_2(TRACE trace, FDF data)
 {
 	int		i;
 
@@ -31,7 +31,7 @@ static void	ft_case_2(TRACE trace, data_t data)
 	}
 }
 
-static void	ft_case_1(TRACE trace, data_t data)
+static void	ft_case_1(TRACE trace, FDF data)
 {
 	int		i;
 
@@ -50,7 +50,7 @@ static void	ft_case_1(TRACE trace, data_t data)
 	}
 }
 
-void	iniatilizing_bresenham(int x1, int y1, int x2, int y2, data_t data)
+void	iniatilizing_bresenham(int x1, int y1, int x2, int y2, FDF data)
 {
 	TRACE	trace;
 

@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:25:51 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/10 19:37:51 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 
 # define BUFF_SIZE 100
 
-# define COORD 	t_coord
+# define PXL 	t_pxl
+# define FDF	t_fdf
 # define TRACE	t_bresenham
 
 typedef struct s_pxl 		t_pxl;
@@ -65,11 +66,12 @@ struct		s_bresenham
 	int		y_incr;
 };
 
+FDF			*ft_fill_struct_pxl(FDF *fdf, int fd);
 FDF			*ft_print_pxl(FDF *fdf);
 PXL			*ft_create_pxl(FDF *fdf, int pxl_info[3]);
 FDF			*ft_create_fdf(void);
 PXL			*ft_add_pxl(FDF *fdf, int pxl_info[3]);
 void		ft_destroy_struct(FDF *fdf);
-void		iniatilizing_bresenham(int x1, int y1, int x2, int y2, data_t data);
+void		iniatilizing_bresenham(int x1, int y1, int x2, int y2, FDF data);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:40:52 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:26:00 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/10 19:37:31 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static FDF		*ft_fill_struct_pxl(FDF *fdf, int fd)
+FDF		*ft_fill_struct_pxl(FDF *fdf, int fd)
 {
 	char		*line;
 	int			pxl_info[3];
