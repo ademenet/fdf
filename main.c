@@ -3,57 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/06 19:30:22 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/10 19:27:31 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		get_line(char *argv)
+int				main(int ac, char **av)
 {
-	int fd;
-	char buf[BUFF_SIZE + 1];
-	int lines;
+	FDF			*fdf;
+	int			fd;
 
-	lines = 0;
-	if (!(fd = open(argv, O_RDONLY)))
-		return(0);
-	while (read(fd, buf, BUFF_SIZE))
+	if (ac >= 2)
 	{
-		while (*buf == '\n')
-			lines++;
+		fd = open(av[1], O_RDONLY);
+		fdf = ft_create_fdf();
+		fdf->head->prev = NULL;
+		fdf = ft_fill_struct_pxl(fdf, fd);
+		fdf->mlx = mlx_init();
+		fdf->win = mlx_new_window(fdf->mlx, 1000, 1000, "FDF");
+		fdf = ft_print_pxl(fdf);
+		mlx_loop(fdf->mlx);
 	}
-	return (lines);
-}
-
-int		get_column(char *argv)
-{
-	int		fd;
-	int		column;
-	char	*line;
-
-	column = 0;
-	if (!(fd = open(argv, O_RDONLY)))
-		return(0);
-	get_next_line(fd, &line);
-	column = ft_count_words(line, ' ');
-	return (column);
-}
-
-int		main(int argc, char **argv)
-{
-	int		fd;
-	int		lines;
-	int		nb_lines_columns[2];
-
-	if (argc == 2)
-	{
-		nb_lines_columns[0] = get_line(argv[1]);
-		nb_lines_columns[1] = get_column(argv[1]);
-	}
-	printf("line = %d\n colonne = %d\n ", nb_lines_columns[0], nb_lines_columns[1]);
 	return (0);
 }
+
+/* 
+ * int		main()
+ * {
+ * 	data_t	data;
+ *
+ * 	if ((data.mlx_ptr = mlx_init()) == NULL)
+ * 		return (EXIT_FAILURE);
+ * 	if ((data.mlx_win = mlx_new_window(data.mlx_ptr, 640, 480, "Hello world")) == NULL)
+ * 		return (EXIT_FAILURE);
+ * 	iniatilizing_bresenham(34, 150, 89, 45, data);
+ * 	iniatilizing_bresenham(340, 150, 56, 23, data);
+ * 	iniatilizing_bresenham(340, 150, 340, 23, data);
+ * 	iniatilizing_bresenham(78, 150, 450, 150, data);
+ * 	mlx_loop(data.mlx_ptr);
+ * 	return (EXIT_SUCCESS);
+ * }
+ */
+
+/*
+ * int		main(int argc, char **argv)
+ * {
+ * 	int		fd;
+ * 	int		lines;
+ * 	int		nb_lines_columns[2];
+ *
+ * 	if (argc == 2)
+ * 	{
+ * 		nb_lines_columns[0] = get_line(argv[1]);
+ * 		nb_lines_columns[1] = get_column(argv[1]);
+ * 	}
+ * 	printf("line = %d\n colonne = %d\n ", nb_lines_columns[0], nb_lines_columns[1]);
+ * 	return (0);
+ * }
+ */

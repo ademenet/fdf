@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:40:52 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 18:31:09 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/10 19:26:00 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,4 @@ FDF				*ft_print_pxl(FDF *fdf)
 		fdf->head = fdf->head->prev;
 	}
 	return (fdf);
-}
-
-int				main(int ac, char **av)
-{
-	FDF			*fdf;
-	int			fd;
-
-	if (ac >= 2)
-	{
-		fd = open(av[1], O_RDONLY);
-		fdf = ft_create_fdf();
-		fdf->head->prev = NULL;
-		fdf = ft_fill_struct_pxl(fdf, fd);
-		fdf->mlx = mlx_init();
-		fdf->win = mlx_new_window(fdf->mlx, 1000, 1000, "FDF");
-		fdf = ft_print_pxl(fdf);
-		mlx_loop(fdf->mlx);
-	}
-	return (0);
 }
