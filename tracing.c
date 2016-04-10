@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/09 19:01:46 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/10 17:05:59 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,19 @@ typedef struct
 
 typedef struct
 {
+	int		x1;
+	int		y1;
+	int		x2;
+	int		y2;
 	int		dx;
 	int		dy;
 	int		ex;
 	int		ey;
-	int		x_incr;
-	int		y_incr;
-	int		i;
 	int		Dx;
 	int		Dy;
-} t_bresenham;
+	int		x_incr;
+	int		y_incr;
+} bresenham_t;
 
 /*
 ** This function is based on Bresenham works.
@@ -45,57 +48,69 @@ int		ft_abs(int x)
 
 // TODO : finir la structure et les deux cas
 
-void	line(int x1, int y1, int x2, int y2, data_t data)
+void	ft_line_2(bresenham_t trace, data_t data)
 {
-	int		dx;
-	int		dy;
-	int		e;
-	int		x_incr;
-	int		y_incr;
 	int		i;
-	int		Dx;
-	int		Dy;
 
-	e = ft_abs(x2 - x1);
-	dx = 2 * e;
-	dy = 2 * ft_abs(y2 - y1);
-	Dx = ex;
-	if (x1 > x2)
-		x_incr = -1;
-	if (y1 > y2)
-		y_incr = -1;
-	if (Dx > Dy)
+	i = 0;
+	while (i <= trace.Dy)
 	{
-		while (i <= Dx)
+		mlx_pixel_put(data.mlx_ptr, data.mlx_win, trace.x1, trace.y1, 0x00FFFFFF);
+		trace.y1 += trace.y_incr;
+		trace.ey -= trace.dx;
+		if (trace.ey < 0)
 		{
-			mlx_pixel_put(data.mlx_ptr, data.mlx_win, x1, y1, 0x00FFFFFF);
-			x1 += x_incr
-			ex -= dy;
-			if (e < 0)
-			{
-				y1 += y_incr;
-				e += dx;
-			}
-			i++;
+			trace.x1 += trace.x_incr;
+			trace.ey += trace.dy;
 		}
-	}
-	if (Dx < Dy)
-	{
-		while (i <= Dy)
-		{
-			mlx_pixel_put(data.mlx_ptr, data.mlx_win, x1, y1, 0x00FFFFFF);
-			y1 += y_incr;
-			ey -= dx;
-			if (ey < 0)
-			{
-				x1 += x_incr;
-				ey += dy;
-			}
-			i++;
-		}
+		i++;
 	}
 }
 
+void	ft_line_1(bresenham_t trace, data_t data)
+{
+	int		i;
+
+	i = 0;
+	while (i <= trace.Dx)
+	{
+		mlx_pixel_put(data.mlx_ptr, data.mlx_win, trace.x1, trace.y1, 0x00FFFFFF);
+		trace.x1 += trace.x_incr;
+		trace.ex -= trace.dy;
+		if (trace.ex < 0)
+		{
+			trace.y1 += trace.y_incr;
+			trace.ex += trace.dx;
+		}
+		i++;
+	}
+}
+
+void	iniatilizing_bresenham(int x1, int y1, int x2, int y2, data_t data)
+{
+	bresenham_t		trace;
+
+	trace.x1 = x1;
+	trace.y1 = y1;
+	trace.x2 = x2;
+	trace.y2 = y2;
+	trace.ex = abs(x1 - x2);
+	trace.ey = abs(y1 - y2);
+	trace.dx = 2 * trace.ex;
+	trace.dy = 2 * trace.ey;
+	trace.Dx = trace.ex;
+	trace.Dy = trace.ey;
+	trace.x_incr = 1;
+	trace.y_incr = 1;
+	if (x1 > x2)
+		trace.x_incr = -1;
+	if (y1 > y2)
+		trace.y_incr = -1;
+	if (trace.Dx > trace.Dy)
+		ft_line_1(trace, data);
+	if (trace.Dx < trace.Dy)
+		ft_line_2(trace, data);
+}
 
 
 int		main()
@@ -106,7 +121,10 @@ int		main()
 		return (EXIT_FAILURE);
 	if ((data.mlx_win = mlx_new_window(data.mlx_ptr, 640, 480, "Hello world")) == NULL)
 		return (EXIT_FAILURE);
-	line(34, 150, 89, 45, data);
+	iniatilizing_bresenham(34, 150, 89, 45, data);
+	iniatilizing_bresenham(340, 150, 56, 23, data);
+	iniatilizing_bresenham(340, 150, 340, 23, data);
+	iniatilizing_bresenham(78, 150, 450, 150, data);
 	mlx_loop(data.mlx_ptr);
 	return (EXIT_SUCCESS);
 }
