@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 19:46:13 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:51:17 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 09:26:09 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ struct	s_iso
 	int		z;
 };
 
-s_iso	iso_conversion(PXL pxl)
+s_iso	iso_conversion(PXL *pxl)
 {
-	u = PXL->x * cos() + PXL->y * cos() + PXL->z * cos();
-	v = PXL->x * sin() + PXL->y * sin() + PXL->z * sin();
+	u = PXL->x * cos(M_PI4) + PXL->y * cos(M_PI4) + PXL->z * cos(M_PI4);
+	v = PXL->x * sin(M_PI4) + PXL->y * sin(M_PI4) + PXL->z * sin(M_PI4);
 }
