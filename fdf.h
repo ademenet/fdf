@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/11 16:17:08 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 16:55:14 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@
 # define PXL 	t_pxl
 # define FDF	t_fdf
 # define TRACE	t_bresenham
-# define ISO	t_iso
 
 typedef struct s_pxl 		t_pxl;
 typedef struct s_fdf		t_fdf;
 typedef struct s_bresenham	t_bresenham;
-typedef struct s_iso		t_iso;
 
 struct 		s_pxl
 {
 	int 	x;
 	int 	y;
 	int 	z;
+	int		u;
+	int		v;
 	char	*color;
 	PXL 	*next;
 	PXL 	*prev;
@@ -66,12 +66,6 @@ struct		s_bresenham
 	int		Dy;
 	int		x_incr;
 	int		y_incr;
-};
-
-struct	s_iso
-{
-	int		u;
-	int		v;
 };
 
 FDF			*ft_fill_struct_pxl(FDF *fdf, int fd);

@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 17:55:48 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 18:30:43 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 16:54:44 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ PXL			*ft_create_pxl(FDF *fdf, int pxl_info[3])
 	new->x = pxl_info[0];
 	new->y = pxl_info[1];
 	new->z = pxl_info[2];
+	new->u = 0;
+	new->v = 0;
 	new->color = "0xFFFFFF";
 	new->next = NULL;
 	new->prev = fdf->head;
