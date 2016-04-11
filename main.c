@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/11 10:20:03 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 10:45:35 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int				main(int ac, char **av)
 		fdf = ft_fill_struct_pxl(fdf, fd);
 		fdf->mlx = mlx_init();
 		fdf->win = mlx_new_window(fdf->mlx, 1366, 768, "FDF by ademenet");
-		fdf = iniatilizing_bresenham(fdf);
+		iniatilizing_bresenham(fdf);
 		mlx_loop(fdf->mlx);
 	}
 	return (0);

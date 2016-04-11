@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:40:52 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/11 10:19:48 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 10:47:08 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FDF		*ft_fill_struct_pxl(FDF *fdf, int fd)
 	char		*line;
 	int			pxl_info[3];
 	char		**tmp;
-	char		**tmp2;
+	char		**tmp2 = NULL;
 	char		*color;
 
 	pxl_info[0] = 0;
@@ -41,7 +41,7 @@ FDF		*ft_fill_struct_pxl(FDF *fdf, int fd)
 	return (fdf);
 }
 
-/* 
+/*
  * FDF				*ft_print_pxl(FDF *fdf)
  * {
  * 	int space;

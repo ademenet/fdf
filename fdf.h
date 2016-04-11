@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:37:51 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 10:31:52 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,10 @@ struct		s_bresenham
 };
 
 FDF			*ft_fill_struct_pxl(FDF *fdf, int fd);
-FDF			*ft_print_pxl(FDF *fdf);
 PXL			*ft_create_pxl(FDF *fdf, int pxl_info[3]);
 FDF			*ft_create_fdf(void);
 PXL			*ft_add_pxl(FDF *fdf, int pxl_info[3]);
 void		ft_destroy_struct(FDF *fdf);
-void		iniatilizing_bresenham(int x1, int y1, int x2, int y2, FDF data);
+void		iniatilizing_bresenham(FDF *data);
 
 #endif
