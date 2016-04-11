@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/11 13:13:36 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 16:17:08 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@
 # define PXL 	t_pxl
 # define FDF	t_fdf
 # define TRACE	t_bresenham
+# define ISO	t_iso
 
 typedef struct s_pxl 		t_pxl;
 typedef struct s_fdf		t_fdf;
 typedef struct s_bresenham	t_bresenham;
+typedef struct s_iso		t_iso;
 
 struct 		s_pxl
 {
@@ -66,11 +68,18 @@ struct		s_bresenham
 	int		y_incr;
 };
 
+struct	s_iso
+{
+	int		u;
+	int		v;
+};
+
 FDF			*ft_fill_struct_pxl(FDF *fdf, int fd);
 PXL			*ft_create_pxl(FDF *fdf, int pxl_info[3]);
 FDF			*ft_create_fdf(void);
 PXL			*ft_add_pxl(FDF *fdf, int pxl_info[3]);
 void		ft_destroy_struct(FDF *fdf);
 void		iniatilizing_bresenham(FDF *data);
+ISO			iso_conversion(PXL *pxl);
 
 #endif

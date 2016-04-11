@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/11 13:53:40 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 16:16:50 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,6 @@ static void	ft_case_1(TRACE trace, FDF *data)
 	i = 0;
 	while (i <= trace.Dx)
 	{
-		ft_putstr("x1 = ");
-		ft_putnbr(trace.x1);
-		ft_putstr("\n");
-		ft_putstr("y1 = ");
-		ft_putnbr(trace.y1);
-		ft_putstr("\n");
 
 		mlx_pixel_put(data->mlx, data->win, trace.x1, trace.y1, 0x00FFFFFF);
 		trace.x1 += trace.x_incr;
@@ -57,7 +51,7 @@ static void	ft_case_1(TRACE trace, FDF *data)
 	}
 }
 
-void		iniatilizing_bresenham(FDF *data)
+void		iniatilizing_bresenham(ISO pxl_1, ISO pxl_2)
 {
 	TRACE	trace;
 	PXL		*pxl1;
@@ -71,8 +65,8 @@ void		iniatilizing_bresenham(FDF *data)
 		trace.y1 = pxl1->y * 40;
 		trace.x2 = pxl2->x * 40;
 		trace.y2 = pxl2->y * 40;
-		trace.ex = abs(pxl1->x - pxl2->x);
-		trace.ey = abs(pxl1->y - pxl2->y);
+		trace.ex = abs(trace.x1 - trace.x2);
+		trace.ey = abs(trace.y1 - trace.y2);
 		trace.dx = 2 * trace.ex;
 		trace.dy = 2 * trace.ey;
 		trace.Dx = trace.ex;
@@ -85,12 +79,10 @@ void		iniatilizing_bresenham(FDF *data)
 			trace.y_incr = -1;
 		if (trace.Dx > trace.Dy)
 		{
-			ft_putstr("Dx > Dy\n");
 			ft_case_1(trace, data);
 		}
 		if (trace.Dx < trace.Dy)
 		{
-			ft_putstr("Dx < Dy\n");
 			ft_case_2(trace, data);
 		}
 		pxl1 = pxl2;
