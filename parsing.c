@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:40:52 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:37:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 10:19:48 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,22 @@ FDF		*ft_fill_struct_pxl(FDF *fdf, int fd)
 	return (fdf);
 }
 
-FDF				*ft_print_pxl(FDF *fdf)
-{
-	int space;
-
-	space = 10;
-	while (fdf->head->prev)
-	{
-		if (fdf->head->z == 0)
-			mlx_pixel_put(fdf->mlx, fdf->win, (fdf->head->x * space),
-				(fdf->head->y * space), 0xFFFFFF);
-		else
-			mlx_pixel_put(fdf->mlx, fdf->win, (fdf->head->x * space),
-				(fdf->head->y * space), 0x0000FF);
-		fdf->head = fdf->head->prev;
-	}
-	return (fdf);
-}
+/* 
+ * FDF				*ft_print_pxl(FDF *fdf)
+ * {
+ * 	int space;
+ *
+ * 	space = 10;
+ * 	while (fdf->head->prev)
+ * 	{
+ * 		if (fdf->head->z == 0)
+ * 			mlx_pixel_put(fdf->mlx, fdf->win, (fdf->head->x * space),
+ * 				(fdf->head->y * space), 0xFFFFFF);
+ * 		else
+ * 			mlx_pixel_put(fdf->mlx, fdf->win, (fdf->head->x * space),
+ * 				(fdf->head->y * space), 0x0000FF);
+ * 		fdf->head = fdf->head->prev;
+ * 	}
+ * 	return (fdf);
+ * }
+ */

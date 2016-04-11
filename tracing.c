@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/10 19:33:08 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/11 10:25:07 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,11 @@ static void	ft_case_1(TRACE trace, FDF data)
 	}
 }
 
-void	iniatilizing_bresenham(int x1, int y1, int x2, int y2, FDF data)
+void	iniatilizing_bresenham(FDF *data)
 {
 	TRACE	trace;
+	FDF		*pxl1;
+	FDF		*pxl2;
 
 	trace.x1 = x1;
 	trace.y1 = y1;
@@ -66,12 +68,19 @@ void	iniatilizing_bresenham(int x1, int y1, int x2, int y2, FDF data)
 	trace.Dy = trace.ey;
 	trace.x_incr = 1;
 	trace.y_incr = 1;
-	if (x1 > x2)
-		trace.x_incr = -1;
-	if (y1 > y2)
-		trace.y_incr = -1;
-	if (trace.Dx > trace.Dy)
-		ft_case_1(trace, data);
-	if (trace.Dx < trace.Dy)
-		ft_case_2(trace, data);
+	pxl1 = data;
+	pxl2 = data->next;
+	while (pxl2 != NULL)
+	{
+		if (x1 > x2)
+			trace.x_incr = -1;
+		if (y1 > y2)
+			trace.y_incr = -1;
+		if (trace.Dx > trace.Dy)
+			ft_case_1(trace, data);
+		if (trace.Dx < trace.Dy)
+			ft_case_2(trace, data);
+		pxl1 = pxl2;
+		pxl2 = pxl1->next;
+	}
 }
