@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ademenet <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/06 15:03:13 by ademenet          #+#    #+#              #
-#    Updated: 2016/04/06 15:22:29 by ademenet         ###   ########.fr        #
+#    Updated: 2016/04/11 10:35:04 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,20 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = fdf
 
-SOURCES = 
+SOURCES =	main.c\
+			parsing.c\
+			struct.c\
+			tracing.c
 
-HEADERS = libft.h
+HEADERS = fdf.h
 
 OBJECT = $(SOURCES:.c=.o)
 
+FRAMEWORK = -lmlx -framework OpenGL -framework AppKit
+
 $(NAME):
-	@$(CC) $(FLAGS) -c $(SOURCES)
+	@make --directory libft/
+	@$(CC) $(FLAGS) -o mlx $(SOURCES) $(FRAMEWORK)
 
 all: $(NAME)
 
