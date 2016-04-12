@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/12 16:03:46 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/12 17:52:41 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ void		tracing_lines(ENV env)
 		x = 0;
 		while (x < env.c_nbr - 1)
 		{
-			x1 = env.map[y][x].x * 40;
-			y1 = env.map[y][x].y * 40;
-			x2 = env.map[y][x + 1].x * 40;
-			y2 = env.map[y][x + 1].y * 40;
+			x1 = env.map[y][x].x * 40 + 50;
+			y1 = env.map[y][x].y * 40 + 50;
+			x2 = env.map[y][x + 1].x * 40 + 50;
+			y2 = env.map[y][x + 1].y * 40 + 50;
 			env.ex = abs(x1 - x2);
 			env.ey = abs(y1 - y2);
 			env.x_incr = 1;
@@ -115,10 +115,10 @@ void		tracing_columns(ENV env)
 		x = 0;
 		while (x < env.c_nbr)
 		{
-			x1 = env.map[y][x].x * 40;
-			y1 = env.map[y][x].y * 40;
-			x2 = env.map[y + 1][x].x * 40;
-			y2 = env.map[y + 1][x].y * 40;
+			x1 = env.map[y][x].x * 40 + 50;
+			y1 = env.map[y][x].y * 40 + 50;
+			x2 = env.map[y + 1][x].x * 40 + 50;
+			y2 = env.map[y + 1][x].y * 40 + 50;
 			env.ex = abs(x1 - x2);
 			env.ey = abs(y1 - y2);
 			env.x_incr = 1;
