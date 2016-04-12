@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/12 11:17:06 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/12 11:44:02 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ struct		s_env
 	PXL		**map;
 };
 
-ENV			parsing(ENV env, char *av);
+ENV		parsing(ENV env, char *av);
+ENV		iso_conversion(ENV env);
 
 #endif
