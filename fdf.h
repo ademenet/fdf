@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/12 16:02:02 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/12 17:49:52 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct s_env	t_env;
 
 struct		s_pxl
 {
-	int		x;
-	int		y;
-	int		z;
+	double	x;
+	double	y;
+	double	z;
 	char	*color;
 };
 
@@ -65,6 +65,7 @@ struct		s_env
 
 ENV		parsing(ENV env, char *av);
 ENV		iso_conversion(ENV env);
+ENV		z_rotate(ENV env);
 void	tracing_lines(ENV env);
 void	tracing_columns(ENV env);
 
