@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/12 19:09:47 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/12 20:24:44 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void		iniatilizing_tracing(ENV env, int x1, int y1, int x2, int y2)
 	// env.dy_c = env.ey;
 	env.sx = (x1 < x2 ? 1 : -1);
 	env.sy = (y1 < y2 ? 1 : -1);
-	env.err = (env.dx > env.dy ? env.dx : env.dy) / 2;
+	env.err = (env.dx > env.dy ? env.dx : -(env.dy)) / 2;
 	// if (env.dx_c > env.dy_c)
 	// {
 	// 	ft_putstr("cas 1\n");
