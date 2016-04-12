@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/12 17:49:52 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/12 18:52:38 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,15 @@ struct		s_env
 	int		dy;
 	int		ex;
 	int		ey;
+
+	int		sx;
+	int		sy;
+	int		err;
+	int		e2;
+
 	int		dx_c;
 	int		dy_c;
+
 	int		x_incr;
 	int		y_incr;
 
