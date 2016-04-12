@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/11 18:53:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/12 11:17:06 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@
 # define PXL 	t_pxl
 # define ENV	t_env
 
-typedef struct s_pxl 	t_pxl;
+typedef struct s_pxl	t_pxl;
 typedef struct s_env	t_env;
 
-struct 		s_pxl
+struct		s_pxl
 {
-	int 	x;
-	int 	y;
-	int 	z;
+	int		x;
+	int		y;
+	int		z;
 	char	*color;
-	};
+};
 
 struct		s_env
 {
-	void 	*mlx;
+	void	*mlx;
 	void	*win;
 
 	int		l_nbr;
@@ -55,18 +55,14 @@ struct		s_env
 	int		dy;
 	int		ex;
 	int		ey;
-	int		Dx;
-	int		Dy;
+	int		dx_c;
+	int		dy_c;
 	int		x_incr;
 	int		y_incr;
+
+	PXL		**map;
 };
 
-// FDF			*ft_fill_struct_pxl(FDF *fdf, int fd);
-// PXL			*ft_create_pxl(FDF *fdf, int pxl_info[3]);
-// FDF			*ft_create_fdf(void);
-// PXL			*ft_add_pxl(FDF *fdf, int pxl_info[3]);
-// void		ft_destroy_struct(FDF *fdf);
-// void		iniatilizing_bresenham(FDF *data);
-// ISO			iso_conversion(PXL *pxl);
+ENV			parsing(ENV env, char *av);
 
 #endif
