@@ -6,13 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 10:05:34 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 15:25:26 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		iniatilizing_tracing(ENV *env)
+static void		tracing_display(ENV *env)
 {
 	env->dx = abs(env->x2 - env->x1);
 	env->dy = abs(env->y2 - env->y1);
@@ -35,8 +35,25 @@ static void		iniatilizing_tracing(ENV *env)
 		}
 	}
 }
+static void		tracing_lines(ENV *env, int x, int y)
+{
+	env->x1 = env->map[y][x].x * 40 + 150;
+	env->y1 = env->map[y][x].y * 40 + 150;
+	env->x2 = env->map[y][x + 1].x * 40 + 150;
+	env->y2 = env->map[y][x + 1].y * 40 + 150;
+	tracing_display(env);
+}
 
-void			tracing_lines(ENV *env)
+static void		tracing_columns(ENV *env, int x, int y)
+{
+	env->x1 = env->map[y][x].x * 40 + 150;
+	env->y1 = env->map[y][x].y * 40 + 150;
+	env->x2 = env->map[y + 1][x].x * 40 + 150;
+	env->y2 = env->map[y + 1][x].y * 40 + 150;
+	tracing_display(env);
+}
+
+void			tracing(ENV *env)
 {
 	int		x;
 	int		y;
@@ -47,35 +64,17 @@ void			tracing_lines(ENV *env)
 		x = 0;
 		while (x < env->c_nbr - 1)
 		{
-			env->x1 = env->map[y][x].x * 40 + 150;
-			env->y1 = env->map[y][x].y * 40 + 150;
-			env->x2 = env->map[y][x + 1].x * 40 + 150;
-			env->y2 = env->map[y][x + 1].y * 40 + 150;
-			iniatilizing_tracing(env);
+			if (y < env->l_nbr - 1)
+			{
+				tracing_lines(env, x, y);
+				tracing_columns(env, x, y);
+			}
+			else
+				tracing_lines(env, x, y);
 			x++;
 		}
-		y++;
-	}
-}
-
-void			tracing_columns(ENV *env)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < env->l_nbr - 1)
-	{
-		x = 0;
-		while (x < env->c_nbr)
-		{
-			env->x1 = env->map[y][x].x * 40 + 150;
-			env->y1 = env->map[y][x].y * 40 + 150;
-			env->x2 = env->map[y + 1][x].x * 40 + 150;
-			env->y2 = env->map[y + 1][x].y * 40 + 150;
-			iniatilizing_tracing(env);
-			x++;
-		}
+		if (y < env->l_nbr - 1)
+			tracing_columns(env, x, y);
 		y++;
 	}
 }
