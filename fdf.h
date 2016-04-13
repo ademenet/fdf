@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 15:53:27 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 17:42:44 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@
 # include "mlx.h"
 # include "libft/libft.h"
 
-# define PXL 	t_pxl
-# define ENV	t_env
+# define PXL		t_pxl
+# define ENV		t_env
+
+# define INT_MAX	2147483647
+# define INT_MIN	-2147483648
 
 typedef struct s_pxl	t_pxl;
 typedef struct s_env	t_env;
