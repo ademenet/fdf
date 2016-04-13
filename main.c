@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 13:38:35 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 13:43:03 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		if ((env = (ENV*)malloc(sizeof(ENV))) != NULL)
+		if ((env = (ENV*)malloc(sizeof(ENV))) == NULL)
 			ft_error("malloc failed");
 		parsing(env, av[1]);
 		env->mlx = mlx_init();
@@ -43,6 +43,10 @@ int		main(int ac, char **av)
 		mlx_key_hook(env->win, &key_binding, env);
 		mlx_loop(env->mlx);
 	}
+	else if (ac > 2)
+		ft_error("too much file arguments. Please precise only one file");
+	else
+		ft_error("not enough file arguments. Please precise at least one file");
 	// free(env->map);
 	// free(env);
 	return (0);
