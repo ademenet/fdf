@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 13:44:51 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 14:07:54 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 int			key_binding(int keycode, ENV *env)
 {
+	int		i;
+
 	if (keycode == 53)
 	{
 		mlx_destroy_window(env->mlx, env->win);
+		i = 0;
+		while (i++ < env->l_nbr)
+			free(env->map[i]);
+		free(env->map);
+		free(env);
 		exit(0);
 	}
 	if (keycode == 123)
