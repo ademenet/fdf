@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 10:36:35 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 13:37:26 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
+# include <errno.h>
 # include "mlx.h"
 # include "libft/libft.h"
 

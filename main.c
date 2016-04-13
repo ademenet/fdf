@@ -6,11 +6,24 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 10:37:15 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 13:38:35 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	ft_error(char *s)
+{
+	if (!s)
+		perror("error");
+	else
+	{
+		ft_putstr("error: ");
+		ft_putstr(s);
+		ft_putstr(".\n");
+	}
+	exit(-1);
+}
 
 int		main(int ac, char **av)
 {
@@ -18,7 +31,8 @@ int		main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		env = (ENV*)malloc(sizeof(ENV));
+		if ((env = (ENV*)malloc(sizeof(ENV))) != NULL)
+			ft_error("malloc failed");
 		parsing(env, av[1]);
 		env->mlx = mlx_init();
 		env->win = mlx_new_window(env->mlx, 1366, 768, "FDF");
