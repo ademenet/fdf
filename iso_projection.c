@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 19:46:13 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 10:04:11 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 10:43:29 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ ENV		*z_rotate(ENV *env)
 		j = 0;
 		while (j < env->c_nbr)
 		{
-			env->map[i][j].x = cos(M_PI_2) * env->map[i][j].x - sin(M_PI_2) *
+			env->map[i][j].x = cos(env->rotate) * env->map[i][j].x - sin(env->rotate) *
 				env->map[i][j].y;
-			env->map[i][j].y = sin(M_PI_2) * env->map[i][j].x - cos(M_PI_2) *
+			env->map[i][j].y = sin(env->rotate) * env->map[i][j].x - cos(env->rotate) *
 				env->map[i][j].y;
 			j++;
 		}

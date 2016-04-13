@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 10:37:15 by ademenet         ###   ########.fr       */
+/*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
+/*   Updated: 2016/04/13 10:44:10 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(int ac, char **av)
+int			key_binding(int keycode, ENV *env)
 {
-	ENV		*env;
-
-	if (ac == 2)
+	if (keycode == 53)
+		mlx_destroy_window(env->mlx, env->win);
+	if (keycode == 123)
 	{
-		env = (ENV*)malloc(sizeof(ENV));
-		parsing(env, av[1]);
-		env->mlx = mlx_init();
-		env->win = mlx_new_window(env->mlx, 1366, 768, "FDF");
-		// z_rotate(env);
-		iso_conversion(env);
-		tracing_lines(env);
-		tracing_columns(env);
-		mlx_key_hook(env->win, &key_binding, env);
-		mlx_loop(env->mlx);
+		env->rotate = M_PI / 36;
+		z_rotate(env);
 	}
-	// free(env->map);
-	// free(env);
-	return (0);
+	return(0);
 }

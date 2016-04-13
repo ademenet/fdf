@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 10:03:16 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 10:36:35 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ struct		s_env
 	int		l_nbr;
 	int		c_nbr;
 
+	int		rotate;
+	int		zoom;
+	int		x_ori;
+	int		y_ori;
+
 	int		x1;
 	int		y1;
 	int		x2;
@@ -64,5 +69,6 @@ ENV			*iso_conversion(ENV *env);
 ENV			*z_rotate(ENV *env);
 void		tracing_lines(ENV *env);
 void		tracing_columns(ENV *env);
+int			key_binding(int keycode, ENV *env);
 
 #endif
