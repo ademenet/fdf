@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 15:29:56 by ademenet         ###   ########.fr       */
+/*   Created: 2016/04/13 15:38:23 by ademenet          #+#    #+#             */
+/*   Updated: 2016/04/13 15:50:19 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int			key_binding(int keycode, ENV *env)
+void	ft_error(char *s)
 {
-	int		i;
-
-	if (keycode == 53)
+	if (s == NULL)
+		perror("error");
+	else
 	{
-		mlx_destroy_window(env->mlx, env->win);
-		i = -1;
-		while (++i < env->l_nbr) // Probleme de free abort
-			free(env->map[i]);
-		free(env->map);
-		free(env);
-		exit(0);
+		ft_putstr("error: ");
+		ft_putstr(s);
+		ft_putstr(".\n");
 	}
-	if (keycode == 123)
-	{
-		env->rotate = M_PI / 36;
-		z_rotate(env);
-	}
-	return(0);
+	exit(-1);
 }
