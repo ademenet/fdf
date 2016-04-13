@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/06 15:03:13 by ademenet          #+#    #+#              #
-#    Updated: 2016/04/11 14:27:19 by ademenet         ###   ########.fr        #
+#    Updated: 2016/04/13 09:23:39 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ NAME = fdf
 
 SOURCES =	main.c\
 			parsing.c\
-			struct.c\
-			tracing.c
+			tracing.c\
+			iso_projection.c
 
 HEADERS = fdf.h
 
