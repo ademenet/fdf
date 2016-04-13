@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 13:43:03 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 14:02:50 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(char *s)
 {
-	if (!s)
+	if (s == NULL)
 		perror("error");
 	else
 	{
@@ -34,9 +34,10 @@ int		main(int ac, char **av)
 		if ((env = (ENV*)malloc(sizeof(ENV))) == NULL)
 			ft_error("malloc failed");
 		parsing(env, av[1]);
-		env->mlx = mlx_init();
-		env->win = mlx_new_window(env->mlx, 1366, 768, "FDF");
-		// z_rotate(env);
+		if ((env->mlx = mlx_init()) == NULL)
+			ft_error("mlx_init failed");
+		if ((env->win = mlx_new_window(env->mlx, 1366, 768, "FDF")) == NULL)
+			ft_error("mlx_new_window failed");
 		iso_conversion(env);
 		tracing_lines(env);
 		tracing_columns(env);
@@ -47,7 +48,5 @@ int		main(int ac, char **av)
 		ft_error("too much file arguments. Please precise only one file");
 	else
 		ft_error("not enough file arguments. Please precise at least one file");
-	// free(env->map);
-	// free(env);
 	return (0);
 }

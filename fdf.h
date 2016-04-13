@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 13:37:26 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 13:46:41 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ ENV			*z_rotate(ENV *env);
 void		tracing_lines(ENV *env);
 void		tracing_columns(ENV *env);
 int			key_binding(int keycode, ENV *env);
+void		ft_error(char *s);
 
 #endif
