@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/06 15:03:13 by ademenet          #+#    #+#              #
-#    Updated: 2016/04/13 15:45:37 by ademenet         ###   ########.fr        #
+#    Updated: 2016/04/13 17:06:14 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,9 @@ fclean: clean
 	@echo "\033[1;34mFDF\t\033[1;33mCleaning\t\033[0;32m[OK]\033[0m"
 
 re: fclean all
+
+rr:
+	$(CC) $(FLAGS) -o fdf libft/libft.a $(SOURCES) $(FRAMEWORK)
 
 run:
 	./$(NAME)
