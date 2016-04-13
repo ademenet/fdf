@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/12 18:52:38 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 09:14:49 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # include <math.h>
 # include "mlx.h"
 # include "libft/libft.h"
-
-# define BUFF_SIZE 100
 
 # define PXL 	t_pxl
 # define ENV	t_env
@@ -53,19 +51,10 @@ struct		s_env
 	int		y2;
 	int		dx;
 	int		dy;
-	int		ex;
-	int		ey;
-
 	int		sx;
 	int		sy;
 	int		err;
 	int		e2;
-
-	int		dx_c;
-	int		dy_c;
-
-	int		x_incr;
-	int		y_incr;
 
 	PXL		**map;
 };
