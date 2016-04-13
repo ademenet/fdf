@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 15:38:47 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 19:08:20 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int		main(int ac, char **av)
 	{
 		if ((env = (ENV*)malloc(sizeof(ENV))) == NULL)
 			ft_error("malloc failed");
+		env->translate_x = 150;
+		env->translate_y = 150;
+		env->zoom = 40;
 		parsing(env, av[1]);
 		if ((env->mlx = mlx_init()) == NULL)
 			ft_error("mlx_init failed");
@@ -27,7 +30,7 @@ int		main(int ac, char **av)
 			ft_error("mlx_new_window failed");
 		iso_conversion(env);
 		tracing(env);
-		mlx_key_hook(env->win, &key_binding, env);
+		mlx_hook(env->win, 2,1, &key_binding, env);
 		mlx_loop(env->mlx);
 	}
 	else if (ac > 2)

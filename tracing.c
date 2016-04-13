@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 17:42:18 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/13 18:47:06 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ static void		tracing_display(ENV *env)
 }
 static void		tracing_lines(ENV *env, int x, int y)
 {
-	env->x1 = env->map[y][x].x * 40 + 150;
-	env->y1 = env->map[y][x].y * 40 + 150;
-	env->x2 = env->map[y][x + 1].x * 40 + 150;
-	env->y2 = env->map[y][x + 1].y * 40 + 150;
+	env->x1 = env->map[y][x].x * env->zoom + env->translate_x;
+	env->y1 = env->map[y][x].y * env->zoom + env->translate_y;
+	env->x2 = env->map[y][x + 1].x * env->zoom + env->translate_x;
+	env->y2 = env->map[y][x + 1].y * env->zoom + env->translate_y;
 	tracing_display(env);
 }
 
 static void		tracing_columns(ENV *env, int x, int y)
 {
-	env->x1 = env->map[y][x].x * 40 + 150;
-	env->y1 = env->map[y][x].y * 40 + 150;
-	env->x2 = env->map[y + 1][x].x * 40 + 150;
-	env->y2 = env->map[y + 1][x].y * 40 + 150;
+	env->x1 = env->map[y][x].x * env->zoom + env->translate_x;
+	env->y1 = env->map[y][x].y * env->zoom + env->translate_y;
+	env->x2 = env->map[y + 1][x].x * env->zoom + env->translate_x;
+	env->y2 = env->map[y + 1][x].y * env->zoom + env->translate_y;
 	tracing_display(env);
 }
 
