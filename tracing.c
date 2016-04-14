@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 10:40:10 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/14 14:31:08 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void			tracing_initialize(ENV *env)
 	int		y_max = 1450;
 
 	env->zoom = 1;
+	env->depth = 10;
 	env->translate_x = 150;
 	env->translate_y = 150;
 	env->win_x = 1280;

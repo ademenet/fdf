@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/06 15:03:13 by ademenet          #+#    #+#              #
-#    Updated: 2016/04/13 17:06:14 by ademenet         ###   ########.fr        #
+#    Updated: 2016/04/14 14:32:46 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = fdf
 SOURCES =	main.c\
 			parsing.c\
 			tracing.c\
-			iso_projection.c\
+			projection.c\
 			events.c\
 			errors.c
 

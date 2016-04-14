@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 10:53:11 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/14 14:30:26 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ struct		s_env
 
 	int		rotate;
 	int		zoom;
+	int		depth;
 	int		translate_x;
 	int		translate_y;
 	int		x_ori;
