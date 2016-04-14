@@ -41,8 +41,20 @@ static void		getting_size(ENV *env, int fd)
 static void		getting_nectar(ENV *env, char *tmp, int i, int j)
 {
 	long		nectar;
+	char 		**tmp2;
 
-	nectar = ft_atoi(tmp);
+	tmp2 = NULL;
+	if (ft_strrchr(tmp, ','))
+	{
+		tmp2 = ft_strsplit(tmp, ',');
+		nectar = ft_atoi(tmp2[0]);
+		env->map[i][j].color = tmp2[1];
+	}
+	else
+	{
+		nectar = ft_atoi(tmp);
+		env->map[i][j].color = "0xFFFFFF";
+	}
 	if (nectar < INT_MIN || nectar > INT_MAX)
 		ft_error("wrong file format, please use only integers for depth");
 	env->map[i][j].z = (int)nectar;

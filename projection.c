@@ -29,8 +29,8 @@ ENV		*iso_conversion(ENV *env)
 			 * 	env->map[i][j].z) / sqrt(6);
 			 */
 			env->map[i][j].x = sqrt(2) / 2 * (env->map[i][j].x - env->map[i][j].y);
-			env->map[i][j].y = (-sqrt(2) / env->depth * env->map[i][j].z) - (1 / sqrt(6)) *
-				(env->map[i][j].x + env->map[i][j].y);
+			env->map[i][j].y = -((sqrt(2) / env->depth * env->map[i][j].z) - (1 / sqrt(6)) *
+				(env->map[i][j].x + env->map[i][j].y));
 
 			j++;
 		}
