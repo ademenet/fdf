@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 14:30:26 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/14 16:34:24 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ struct		s_env
 {
 	void	*mlx;
 	void	*win;
+	void	*img;
 
 	int		win_x;
 	int		win_y;
