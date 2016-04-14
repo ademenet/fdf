@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 19:46:13 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 18:41:23 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/14 12:46:16 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,15 @@ ENV		*iso_conversion(ENV *env)
 		j = 0;
 		while (j < env->c_nbr)
 		{
-			env->map[i][j].x = (env->map[i][j].x - env->map[i][j].z) / sqrt(2);
-			env->map[i][j].y = (env->map[i][j].x + 2 * env->map[i][j].y +
-				env->map[i][j].z) / sqrt(6);
+			/*
+			 * env->map[i][j].x = (env->map[i][j].x - env->map[i][j].z) / sqrt(2);
+			 * env->map[i][j].y = (env->map[i][j].x + 2 * env->map[i][j].y +
+			 * 	env->map[i][j].z) / sqrt(6);
+			 */
+			env->map[i][j].x = sqrt(2) / 2 * (env->map[i][j].x - env->map[i][j].y);
+			env->map[i][j].y = (-sqrt(2) / 10 * env->map[i][j].z) - (1 / sqrt(6)) *
+				(env->map[i][j].x + env->map[i][j].y);
+
 			j++;
 		}
 		i++;
@@ -33,7 +39,7 @@ ENV		*iso_conversion(ENV *env)
 	return (env);
 }
 
-ENV		*z_rotate(ENV *env)
+void	z_rotate(ENV *env)
 {
 	int		i;
 	int		j;
@@ -52,5 +58,4 @@ ENV		*z_rotate(ENV *env)
 		}
 		i++;
 	}
-	return (env);
 }
