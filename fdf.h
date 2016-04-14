@@ -24,6 +24,7 @@
 # include "mlx.h"
 # include "libft/libft.h"
 
+# define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 # define PXL		t_pxl
 # define ENV		t_env
 
@@ -71,10 +72,10 @@ struct		s_env
 	int		sy;
 	int		err;
 	int		e2;
-
 	PXL		**map;
 };
 
+int 		couleur(double t);
 ENV			*parsing(ENV *env, char *av);
 ENV			*iso_conversion(ENV *env);
 void		z_rotate(ENV *env);
