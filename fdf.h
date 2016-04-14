@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 18:46:28 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/14 10:25:05 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ struct		s_env
 	void	*mlx;
 	void	*win;
 
+	int		win_x;
+	int		win_y;
+
 	int		l_nbr;
 	int		c_nbr;
 
@@ -73,6 +76,7 @@ struct		s_env
 ENV			*parsing(ENV *env, char *av);
 ENV			*iso_conversion(ENV *env);
 ENV			*z_rotate(ENV *env);
+void		tracing_initialize(ENV *env);
 void		tracing(ENV *env);
 int			key_binding(int keycode, ENV *env);
 void		ft_error(char *s);
