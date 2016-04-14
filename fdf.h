@@ -46,7 +46,12 @@ struct		s_env
 {
 	void	*mlx;
 	void	*win;
-	void	*img;
+
+	// void	*img;
+	// char 	*img_data;
+	// int 	bpp;
+	// int 	sl;
+	// int 	endian;
 
 	int		win_x;
 	int		win_y;
@@ -83,5 +88,6 @@ void		tracing_initialize(ENV *env);
 void		tracing(ENV *env);
 int			key_binding(int keycode, ENV *env);
 void		ft_error(char *s);
+void		display_menu(ENV *env);
 
 #endif

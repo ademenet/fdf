@@ -66,7 +66,17 @@ int				key_binding(int keycode, ENV *env)
 		zoom(keycode, env);
 	if (keycode == 15)
 		rotate(keycode, env);
-	mlx_destroy_image(env->mlx, env->img);
+	// mlx_destroy_image(env->mlx, env->img);
 	tracing(env);
 	return(0);
+}
+
+void	display_menu(ENV *env)
+{
+	mlx_string_put(env->mlx, env->win, 20, 20, 0xFFFFFF,
+		"fleche directionelle pour deplacer l'objet");
+	mlx_string_put(env->mlx, env->win, 20, 35, 0xFFFFFF,
+		"+ et - sur le pave numerique pour zoomer");
+	mlx_string_put(env->mlx, env->win, 40, 50, 0xFFFFFF,
+			"ESC pour quitter");
 }
