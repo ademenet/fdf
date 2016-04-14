@@ -21,7 +21,7 @@ static void		tracing_display(ENV *env, int x, int y)
 	env->err = (env->dx > env->dy ? env->dx : -(env->dy)) / 2;
 	while (!(env->x1 == env->x2 && env->y1 == env->y2))
 	{	
-		mlx_pixel_put(env->mlx, env->win, env->x1, env->y1, (int)env->map[y][x].color);
+		mlx_pixel_put(env->mlx, env->win, env->x1, env->y1, strtol(env->map[y][x].color, NULL, 16));
 		env->e2 = env->err;
 		if (env->e2 > -(env->dx))
 		{
@@ -50,7 +50,7 @@ static void		tracing_columns(ENV *env, int x, int y)
 	env->y1 = env->map[y][x].y * env->zoom + env->translate_y;
 	env->x2 = env->map[y + 1][x].x * env->zoom + env->translate_x;
 	env->y2 = env->map[y + 1][x].y * env->zoom + env->translate_y;
-	tracing_display(env,x ,y);
+	tracing_display(env, x, y);
 }
 
 void			tracing_initialize(ENV *env)

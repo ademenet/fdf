@@ -53,3 +53,10 @@ void	z_rotate(ENV *env)
 		i++;
 	}
 }
+
+int couleur(double t) 
+{ 
+return ((RGB(127.5 * (cos(t) + 1),
+127.5 * (sin(t) + 1),
+127.5 * (1 - cos(t)))));
+}

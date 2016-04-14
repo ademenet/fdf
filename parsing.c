@@ -53,7 +53,7 @@ static void		getting_nectar(ENV *env, char *tmp, int i, int j)
 	else
 	{
 		nectar = ft_atoi(tmp);
-		env->map[i][j].color = "0xFFFFFF";
+		env->map[i][j].color = "0x00FF00";
 	}
 	if (nectar < INT_MIN || nectar > INT_MAX)
 		ft_error("wrong file format, please use only integers for depth");
