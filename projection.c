@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iso_projection.c                                   :+:      :+:    :+:   */
+/*   projection.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 19:46:13 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 14:30:44 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/14 15:10:28 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,9 @@ ENV		*iso_conversion(ENV *env)
 		j = 0;
 		while (j < env->c_nbr)
 		{
-			/*
-			 * env->map[i][j].x = (env->map[i][j].x - env->map[i][j].z) / sqrt(2);
-			 * env->map[i][j].y = (env->map[i][j].x + 2 * env->map[i][j].y +
-			 * 	env->map[i][j].z) / sqrt(6);
-			 */
 			env->map[i][j].x = sqrt(2) / 2 * (env->map[i][j].x - env->map[i][j].y);
-			env->map[i][j].y = (-sqrt(2) / env->depth * env->map[i][j].z) - (1 / sqrt(6)) *
-				(env->map[i][j].x + env->map[i][j].y);
-
+			env->map[i][j].y = -((sqrt(2) / env->depth * env->map[i][j].z) - (1 / sqrt(6)) *
+				(env->map[i][j].x + env->map[i][j].y));
 			j++;
 		}
 		i++;
