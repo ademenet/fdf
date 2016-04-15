@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 16:34:36 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/15 18:13:05 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,12 @@ int				key_binding(int keycode, ENV *env)
 	{
 		mlx_destroy_window(env->mlx, env->win);
 		i = -1;
-		while (++i < env->l_nbr)
-			free(env->map[i]);
-		free(env->map);
-		free(env);
+		/*
+		 * while (++i < env->l_nbr)
+		 * 	free(env->map[i]);
+		 * free(env->map);
+		 * free(env);
+		 */
 		exit(0);
 	}
 	if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
@@ -66,8 +68,10 @@ int				key_binding(int keycode, ENV *env)
 		zoom(keycode, env);
 	if (keycode == 15)
 		rotate(keycode, env);
-	// mlx_destroy_image(env->mlx, env->img);
+	mlx_destroy_image(env->mlx, env->img);
+	env->img = mlx_new_image(env->mlx, env->win_x, env->win_y);
 	tracing(env);
+	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 	return(0);
 }
 

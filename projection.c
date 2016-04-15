@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 19:46:13 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 15:10:28 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/15 17:23:56 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ void	z_rotate(ENV *env)
 	}
 }
 
-int couleur(double t) 
-{ 
-return ((RGB(127.5 * (cos(t) + 1),
-127.5 * (sin(t) + 1),
-127.5 * (1 - cos(t)))));
-}
+/*
+ * int couleur(double t)
+ * {
+ * 	return ((RGB(127.5 * (cos(t) + 1),
+ * 	127.5 * (sin(t) + 1),
+ * 	127.5 * (1 - cos(t)))));
+ * }
+ */

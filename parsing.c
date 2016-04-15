@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:40:52 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/13 18:01:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/15 14:07:23 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ ENV				*parsing(ENV *env, char *av)
 	int		fd;
 
 	if ((fd = open(av, O_RDONLY)) < 0)
-		ft_error("couldn't open file.");
+		ft_error("couldn't open file");
 	getting_size(env, fd);
 	close(fd);
 	if (env->l_nbr == 0 || env->c_nbr == 0)
 		ft_error("nothing to display, your file is empty");
 	if ((fd = open(av, O_RDONLY)) < 0)
-		ft_error("couldn't open file.");
+		ft_error("couldn't open file");
 	getting_content(env, fd);
 	if (close(fd) != 0)
 		ft_error(NULL);

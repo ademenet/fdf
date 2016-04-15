@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 16:34:24 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/15 17:43:46 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "mlx.h"
 # include "libft/libft.h"
 
-# define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
+// # define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 # define PXL		t_pxl
 # define ENV		t_env
 
@@ -47,11 +47,15 @@ struct		s_env
 	void	*mlx;
 	void	*win;
 
-	// void	*img;
-	// char 	*img_data;
-	// int 	bpp;
-	// int 	sl;
-	// int 	endian;
+	void	*img;
+	char 	*img_data;
+	int 	bpp;
+	int 	sl;
+	int 	endian;
+
+	int		r;
+	int		g;
+	int		b;
 
 	int		win_x;
 	int		win_y;

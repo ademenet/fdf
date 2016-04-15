@@ -6,13 +6,23 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 14:31:08 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/15 18:10:46 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		tracing_display(ENV *env, int x, int y)
+static void		put_pixel(ENV *env, int x, int y)
+{
+	int		loc;
+
+	loc = x * env->bpp / 8 + y * env->sl;
+	env->img_data[loc] = 146;
+	env->img_data[loc + 1] = 146;
+	env->img_data[loc + 2] = 146;
+}
+
+static void		tracing_display(ENV *env)
 {
 	env->dx = abs(env->x2 - env->x1);
 	env->dy = abs(env->y2 - env->y1);
@@ -20,8 +30,8 @@ static void		tracing_display(ENV *env, int x, int y)
 	env->sy = (env->y1 < env->y2 ? 1 : -1);
 	env->err = (env->dx > env->dy ? env->dx : -(env->dy)) / 2;
 	while (!(env->x1 == env->x2 && env->y1 == env->y2))
-	{	
-		mlx_pixel_put(env->mlx, env->win, env->x1, env->y1, strtol(env->map[y][x].color, NULL, 16));
+	{
+		put_pixel(env, env->x1, env->y1);
 		env->e2 = env->err;
 		if (env->e2 > -(env->dx))
 		{
@@ -35,13 +45,14 @@ static void		tracing_display(ENV *env, int x, int y)
 		}
 	}
 }
+
 static void		tracing_lines(ENV *env, int x, int y)
 {
 	env->x1 = env->map[y][x].x * env->zoom + env->translate_x;
 	env->y1 = env->map[y][x].y * env->zoom + env->translate_y;
 	env->x2 = env->map[y][x + 1].x * env->zoom + env->translate_x;
 	env->y2 = env->map[y][x + 1].y * env->zoom + env->translate_y;
-	tracing_display(env, x, y);
+	tracing_display(env);
 }
 
 static void		tracing_columns(ENV *env, int x, int y)
@@ -50,27 +61,7 @@ static void		tracing_columns(ENV *env, int x, int y)
 	env->y1 = env->map[y][x].y * env->zoom + env->translate_y;
 	env->x2 = env->map[y + 1][x].x * env->zoom + env->translate_x;
 	env->y2 = env->map[y + 1][x].y * env->zoom + env->translate_y;
-	tracing_display(env, x, y);
-}
-
-void			tracing_initialize(ENV *env)
-{
-	int		x_max = 1450;
-	int		y_max = 1450;
-
-	env->zoom = 1;
-	env->depth = 5;
-	env->translate_x = 150;
-	env->translate_y = 150;
-	env->win_x = 1280;
-	env->win_y = 1024;
-	x_max = env->map[env->l_nbr - 1][env->c_nbr - 1].x;
-	y_max = env->map[env->l_nbr - 1][env->c_nbr - 1].y;
-	while ((x_max * env->zoom + env->translate_x)
-			< (env->win_x - env->translate_x)
-	  	&& (y_max * env->zoom + env->translate_x)
-			< (env->win_y - env->translate_y))
-		env->zoom += 1;
+	tracing_display(env);
 }
 
 void			tracing(ENV *env)
