@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 13:30:33 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 13:42:43 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,6 @@ static void		zoom(int keycode, ENV *env)
 		env->zoom += 5;
 }
 
-static void		rotate(int keycode, ENV *env)
-{
-	if (keycode == 15)
-	{
-		env->rotate += 5;
-		z_rotate(env);
-	}
-}
-
 int				key_binding(int keycode, ENV *env)
 {
 	int		i;
@@ -64,15 +55,13 @@ int				key_binding(int keycode, ENV *env)
 		translation(keycode, env);
 	if (keycode == 78 || keycode == 69)
 		zoom(keycode, env);
-	if (keycode == 15)
-		rotate(keycode, env);
 	mlx_clear_window(env->mlx, env->win);
 	display_menu(env);
 	tracing(env);
-	return(0);
+	return (0);
 }
 
-void	display_menu(ENV *env)
+void			display_menu(ENV *env)
 {
 	mlx_string_put(env->mlx, env->win, 20, 20, 0xFFFFFF,
 		"fleche directionelle pour deplacer l'objet");

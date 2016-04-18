@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 13:31:53 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 13:37:31 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,8 @@ struct		s_env
 	PXL		**map;
 };
 
-int 		couleur(double t);
 ENV			*parsing(ENV *env, char *av);
 ENV			*iso_conversion(ENV *env);
-void		z_rotate(ENV *env);
 void		tracing_initialize(ENV *env);
 void		tracing(ENV *env);
 int			key_binding(int keycode, ENV *env);

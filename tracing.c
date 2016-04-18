@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 14:31:08 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 13:43:18 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static void		tracing_display(ENV *env, int x, int y)
 	env->sy = (env->y1 < env->y2 ? 1 : -1);
 	env->err = (env->dx > env->dy ? env->dx : -(env->dy)) / 2;
 	while (!(env->x1 == env->x2 && env->y1 == env->y2))
-	{	
-		mlx_pixel_put(env->mlx, env->win, env->x1, env->y1, strtol(env->map[y][x].color, NULL, 16));
+	{
+		mlx_pixel_put(env->mlx, env->win, env->x1, env->y1,
+			strtol(env->map[y][x].color, NULL, 16));
 		env->e2 = env->err;
 		if (env->e2 > -(env->dx))
 		{
@@ -35,6 +36,7 @@ static void		tracing_display(ENV *env, int x, int y)
 		}
 	}
 }
+
 static void		tracing_lines(ENV *env, int x, int y)
 {
 	env->x1 = env->map[y][x].x * env->zoom + env->translate_x;
@@ -55,8 +57,8 @@ static void		tracing_columns(ENV *env, int x, int y)
 
 void			tracing_initialize(ENV *env)
 {
-	int		x_max = 1450;
-	int		y_max = 1450;
+	int		x_max;
+	int		y_max;
 
 	env->zoom = 1;
 	env->depth = 5;
@@ -68,7 +70,7 @@ void			tracing_initialize(ENV *env)
 	y_max = env->map[env->l_nbr - 1][env->c_nbr - 1].y;
 	while ((x_max * env->zoom + env->translate_x)
 			< (env->win_x - env->translate_x)
-	  	&& (y_max * env->zoom + env->translate_x)
+			&& (y_max * env->zoom + env->translate_x)
 			< (env->win_y - env->translate_y))
 		env->zoom += 1;
 }
