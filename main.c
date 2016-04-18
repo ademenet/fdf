@@ -6,13 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 15:53:37 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 16:19:02 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void			display_menu(ENV *env)
+void	display_menu(ENV *env)
 {
 	mlx_string_put(env->mlx, env->win, 20, 20, 0x00BFA5,
 		"fleche directionelle pour deplacer la camera");
