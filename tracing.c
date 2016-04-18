@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 14:33:12 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 15:20:24 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void			tracing_initialize(ENV *env)
 	env->depth = 25;
 	env->win_x = 1280;
 	env->win_y = 1024;
+	env->translate_x = env->win_x / 2;
+	env->translate_y = env->win_y / 2;
 	x_max = env->map[env->l_nbr - 1][env->c_nbr - 1].x;
 	y_max = env->map[env->l_nbr - 1][env->c_nbr - 1].y;
 	while ((x_max * env->zoom + env->translate_x)
@@ -71,9 +73,6 @@ void			tracing_initialize(ENV *env)
 			&& (y_max * env->zoom + env->translate_x)
 			< (env->win_y - env->translate_y))
 		env->zoom += 1;
-	env->translate_x = env->win_x / 3;
-	env->translate_y = env->win_y / 3;
-
 }
 
 void			tracing(ENV *env)

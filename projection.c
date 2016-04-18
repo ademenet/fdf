@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/10 19:46:13 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 15:06:17 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 15:17:41 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			iso_conversion(ENV *env, int flag)
 {
 	int		i;
 	int		j;
+
 	if (flag == 0)
 	{
 		i = 0;
