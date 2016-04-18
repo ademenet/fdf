@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 13:42:43 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 13:58:20 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ int				key_binding(int keycode, ENV *env)
 
 void			display_menu(ENV *env)
 {
-	mlx_string_put(env->mlx, env->win, 20, 20, 0xFFFFFF,
-		"fleche directionelle pour deplacer l'objet");
-	mlx_string_put(env->mlx, env->win, 20, 35, 0xFFFFFF,
-		"+ et - sur le pave numerique pour zoomer");
-	mlx_string_put(env->mlx, env->win, 40, 50, 0xFFFFFF,
-			"ESC pour quitter");
+	mlx_string_put(env->mlx, env->win, 20, 20, 0x00BFA5,
+		"fleche directionelle pour deplacer la camera");
+	mlx_string_put(env->mlx, env->win, 20, 40, 0x00B8D4,
+		"[+] et [-] sur le pave numerique pour zoomer");
+	mlx_string_put(env->mlx, env->win, 20, 60, 0x0091EA,
+		"ESC pour quitter");
 }

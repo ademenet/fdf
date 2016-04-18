@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 13:42:26 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 13:58:57 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int		main(int ac, char **av)
 	else if (ac > 2)
 		ft_error("too much file arguments. Please precise only one file");
 	else
-		ft_error("not enough file arguments. Please precise at least one file");
+		ft_error("not enough file arguments. Please precise only one file");
 	return (0);
 }
