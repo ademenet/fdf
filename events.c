@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/14 16:34:36 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 13:30:33 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int				key_binding(int keycode, ENV *env)
 		zoom(keycode, env);
 	if (keycode == 15)
 		rotate(keycode, env);
-	// mlx_destroy_image(env->mlx, env->img);
+	mlx_clear_window(env->mlx, env->win);
+	display_menu(env);
 	tracing(env);
 	return(0);
 }
