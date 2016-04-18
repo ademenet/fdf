@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 15:17:27 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 15:34:20 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void		depth(int keycode, ENV *env)
 		env->depth += 1;
 	if (keycode == 3)
 		env->depth -= 1;
-	iso_conversion(env, 1);
+	iso_conversion(env);
 }
 
 int				key_binding(int keycode, ENV *env)

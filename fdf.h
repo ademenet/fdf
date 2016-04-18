@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 15:11:43 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 15:34:26 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ struct		s_env
 };
 
 void		parsing(ENV *env, char *av);
-void		iso_conversion(ENV *env, int flag);
+void		iso_conversion(ENV *env);
 void		tracing_initialize(ENV *env);
 void		tracing(ENV *env);
 int			key_binding(int keycode, ENV *env);
