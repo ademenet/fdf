@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 10:13:25 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 15:34:20 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 16:16:46 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,4 @@ int				key_binding(int keycode, ENV *env)
 	display_menu(env);
 	tracing(env);
 	return (0);
-}
-
-void			display_menu(ENV *env)
-{
-	mlx_string_put(env->mlx, env->win, 20, 20, 0x00BFA5,
-		"fleche directionelle pour deplacer la camera");
-	mlx_string_put(env->mlx, env->win, 20, 40, 0x00B8D4,
-		"[+] et [-] sur le pave numerique pour zoomer");
-	mlx_string_put(env->mlx, env->win, 20, 60, 0xCDDC39,
-		"[d] et [f] pour gerer la hauteur");
-	mlx_string_put(env->mlx, env->win, 20, 80, 0x0091EA,
-		"ESC pour quitter");
 }

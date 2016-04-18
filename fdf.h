@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 15:34:26 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 16:16:29 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ struct		s_env
 	int		translate_y;
 	int		x_ori;
 	int		y_ori;
+	int		angle;
 
 	int		x1;
 	int		y1;
