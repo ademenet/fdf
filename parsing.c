@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:40:52 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 13:40:00 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 14:38:04 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void		getting_nectar(ENV *env, char *tmp, int i, int j)
 	if (nectar < INT_MIN || nectar > INT_MAX)
 		ft_error("wrong file format, please use only integers for depth");
 	env->map[i][j].z = (int)nectar;
+	env->map[i][j].x_init = env->map[i][j].x;
+	env->map[i][j].y_init = env->map[i][j].y;
 }
 
 static void		getting_content(ENV *env, int fd)
@@ -87,7 +89,7 @@ static void		getting_content(ENV *env, int fd)
 	}
 }
 
-ENV				*parsing(ENV *env, char *av)
+void			parsing(ENV *env, char *av)
 {
 	int		fd;
 
@@ -102,5 +104,4 @@ ENV				*parsing(ENV *env, char *av)
 	getting_content(env, fd);
 	if (close(fd) != 0)
 		ft_error(NULL);
-	return (env);
 }

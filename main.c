@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:14:41 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 13:58:57 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 14:44:29 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 		parsing(env, av[1]);
 		tracing_initialize(env);
 		init_img(env);
-		iso_conversion(env);
+		iso_conversion(env, 0);
 		tracing(env);
 		mlx_hook(env->win, 2, 1, &key_binding, env);
 		display_menu(env);

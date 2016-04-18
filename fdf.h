@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 17:42:15 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 13:37:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 14:48:21 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_env	t_env;
 
 struct		s_pxl
 {
+	double	x_init;
+	double	y_init;
 	double	x;
 	double	y;
 	double	z;
@@ -74,8 +76,8 @@ struct		s_env
 	PXL		**map;
 };
 
-ENV			*parsing(ENV *env, char *av);
-ENV			*iso_conversion(ENV *env);
+void		parsing(ENV *env, char *av);
+void		iso_conversion(ENV *env, int flag);
 void		tracing_initialize(ENV *env);
 void		tracing(ENV *env);
 int			key_binding(int keycode, ENV *env);

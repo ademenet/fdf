@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 11:48:58 by ademenet          #+#    #+#             */
-/*   Updated: 2016/04/18 14:00:40 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/04/18 14:33:12 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			tracing_initialize(ENV *env)
 	int		y_max;
 
 	env->zoom = 1;
-	env->depth = 5;
+	env->depth = 25;
 	env->win_x = 1280;
 	env->win_y = 1024;
 	x_max = env->map[env->l_nbr - 1][env->c_nbr - 1].x;
